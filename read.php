@@ -14,9 +14,9 @@ include('includes/dbconnect.php');
                 <div class="card">
                     <div class="card-header">
                         <h4 class="d-inline-flex flex-row">ID : <?php if (isset($_GET['id'])) {
-                            $student_id = $_GET['id'];
-                            $query = "SELECT * FROM students WHERE id='$student_id' ";
-                            $result = mysqli_query($conn, $query); echo $student_id;?> 
+                            $employee_id = $_GET['id'];
+                            $query = "SELECT * FROM employee WHERE id='$employee_id' ";
+                            $result = mysqli_query($conn, $query); echo $employee_id;?> 
                             <h4 class="float-end">Details</h4>
                         </h4>
                     </div>
@@ -25,27 +25,33 @@ include('includes/dbconnect.php');
 
                             if (mysqli_num_rows($result) > 0) 
                             {
-                                $student = mysqli_fetch_array($result);
-                                // print_r($student);
+                                $employee = mysqli_fetch_array($result);
+                                // print_r($employee);
                                 ?>
                                 <form action="code.php" method="POST" enctype="multipart/form-data">
                 
                                     <div class="mb-3 form-group">
-                                        <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                                        <label for="exampleInputEmail1" class="form-label">Employee Name</label>
                                         <p class="form-control">
-                                            <?php echo $student['name']; ?>
+                                            <?php echo $employee['name']; ?>
                                         </p>
                                     </div>
                                     <div class="mb-3 form-group">
                                         <label for="" class="form-label">Contact</label>
                                         <p class="form-control">
-                                            <?php echo $student['phone']; ?>
+                                            <?php echo $employee['phone']; ?>
                                         </p>
                                     </div>
                                     <div class="mb-3 form-group">
                                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                                         <p class="form-control">
-                                            <?php echo $student['email']; ?>
+                                            <?php echo $employee['email']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="mb-3 form-group">
+                                        <label for="exampleInputEmail1" class="form-label">Department</label>
+                                        <p class="form-control">
+                                            <?php echo $employee['department']; ?>
                                         </p>
                                     </div>
                                     <!-- <div class="mb-3 form-group">
@@ -55,7 +61,7 @@ include('includes/dbconnect.php');
                                     <div class="mb-3 form-group">
                                         <label for="" class="form-label">Image</label>
                                         <p class="">
-                                            <img src="<?php echo "uploads/".$student['image']; ?>" alt="oldimage" width="100" height="auto">
+                                            <img src="<?php echo "uploads/".$employee['image']; ?>" alt="oldimage" width="100" height="auto">
                                         </p>
                                     </div>
                                 
