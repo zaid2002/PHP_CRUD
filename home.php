@@ -4,24 +4,25 @@ include('includes/header.php');
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
         <?php
                 include('includes/message.php');
             ?>
             <div class="card">
                 <div class="card-header">
-                    <h4>Student Data
+                    <h4>Employee Data
                         <a href="index.php" class="btn btn-primary float-end">Add</a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table class="table table-striped table-hover table-light">
                         <thead>
                             <tr>
-                                <th scope="col">#ID</th>
+                                <th scope="col">Employee ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Contact</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Department</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -30,10 +31,10 @@ include('includes/header.php');
                             <?php 
                                 include ('includes/dbconnect.php');
 
-                                $fetch_query = "SELECT * FROM students";
-                                $result = mysqli_query($conn, $fetch_query);
+                                $fetch_query = "SELECT * FROM employee";
+                                $result = mysqli_query(mysql: $conn, query: $fetch_query);
 
-                                if(mysqli_num_rows($result) > 0)
+                                if(mysqli_num_rows(result: $result) > 0)
                                 {
                                     foreach($result as $row)
                                     {
@@ -43,8 +44,9 @@ include('includes/header.php');
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['phone'] ?></td>
                                             <td><?php echo $row['email'] ?></td>
+                                            <td><?php echo $row['department'] ?></td>
                                             <td>
-                                                <img src="<?php echo "uploads/" .$row['image'] ?>" width="80" height="75" alt="image">
+                                                <img src="<?php echo "uploads/" .$row['image'] ?>" width="75" height="75" alt="image">
                                             </td>
                                             <td>
                                                 <a href="read.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">View</a>
