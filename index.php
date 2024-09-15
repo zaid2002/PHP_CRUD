@@ -12,12 +12,12 @@ include('includes/header.php');
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insert into Database </h4>
+                        <h4>Employee Details </h4>
                     </div>
                     <div class="card-body">
                         <form action="code.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3 form-group">
-                                <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                                <label for="exampleInputEmail1" class="form-label">Employee Name</label>
                                 <input type="text" class="form-control" name="name" id="exampleInputEmail1">
                             </div>
                             <div class="mb-3 form-group">
@@ -29,8 +29,8 @@ include('includes/header.php');
                                 <input type="email" class="form-control" name="email" id="email">
                             </div>
                             <div class="mb-3 form-group">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                                <label for="exampleInputPassword1" class="form-label">Department</label>
+                                <input type="text" class="form-control" name="department" id="department">
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="" class="form-label">Image</label>
